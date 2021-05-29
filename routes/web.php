@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CreateCVController::class, 'createCVShow']);
+Route::get('/', [CreateCVController::class, 'createCVShow'])->name('create');
+Route::post('/', [CreateCVController::class, 'createCVStore'])->name('create');
