@@ -20,5 +20,6 @@ class CreateCVController extends Controller
     public function createCVStore() {
         $this->createCVService->handleCreateCV();
         return redirect()->route('create');
+//        return view('CreateCV');
     }
 }

@@ -89,7 +89,7 @@
     <textarea id="prasmes" name="prasmes" rows="4" cols="30">
     </textarea>
     <br>
-    <div id="valoda">
+    <div id="valoda" style="display: none">
         <label for="valoda">Valodas nosaukums</label>
 
         <input id="valoda" type="text" name="valoda">
@@ -105,8 +105,13 @@
         <label for="cetri">4</label>
         <input type="radio" id="pieci" name="valodasLimenis" value="pieci">
         <label for="pieci">5</label>
-        <br>
+        <br><input type="button" value="Noņemt valodu"
+                   onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
+
     </div>
+    <span id="addValoda"></span>
+    <input type="button" onclick="addValoda()" value="Pievienot valodu"/>
+    <br>
     <label for="citasPrasmes">Citas prasmes</label>
     <br>
     <textarea id="citasPrasmes" name="citasPrasmes" rows="4" cols="30">
@@ -117,19 +122,11 @@
     <textarea id="intereses" name="intereses" rows="4" cols="30">
     </textarea>
     <br>
-    <div id="info" style="display: none">
         <label for="papildusInfo">Papildus informācija</label>
         <br>
         <textarea id="papildusInfo" name="papildusInfo" rows="4" cols="30">
     </textarea>
         <br>
-        <input type="button" value="Noņemt lauku"
-               onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
-        <br>
-    </div>
-    <span id="addInfo"></span>
-    <input type="button" onclick="addInfo()" value="Pievienot informāciju"/>
-    <br>
     <input id="create" type="submit" name="create" value="Izveidot CV">
 </form>
 <script src="{{asset('js/addFields.js')}}">
