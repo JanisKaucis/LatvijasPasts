@@ -21,7 +21,118 @@ class AllCVService
         $this->result['results'] = personCV::orderBy('id')->simplePaginate(1);
     }
 
-    public function deleteCV()
+    public function handleShowIzglitiba()
+    {
+        foreach ($this->result['results'] as $result) {
+            $izglitibasNosaukumsArray = explode('/', $result->izglitiba);
+            $fakultateArray = explode('/', $result->fakultate);
+            $izglitibasLimenisArray = explode('/', $result->izglitibas_limenis);
+            $statussArray = explode('/', $result->statuss);
+            $parIzglitibuArray = explode('/', $result->par_izglitibu);
+            $darbsArray = explode('/', $result->darbs);
+            $amatsArray = explode('/', $result->amats);
+            $slodzeArray = explode('/', $result->slodze);
+            $stazsArray = explode('/', $result->stazs);
+            $parDarbuArray = explode('/', $result->par_darbu);
+            $valodaArray = explode('/', $result->valoda);
+            $valodasLimenisArray = explode('/', $result->valodas_limenis);
+        }
+        $j = 0;
+        for ($i = 0; $i < count($izglitibasNosaukumsArray); $i++) {
+            $izglitiba[$j] = [];
+            array_push($izglitiba[$j],$izglitibasNosaukumsArray[$j]);
+            array_push($izglitiba[$j],$fakultateArray[$j]);
+            $j++;
+        }
+        $this->result['izglitiba'] = $izglitiba;
+//            foreach ($izglitibasNosaukumsArray as $item){
+//                if (!empty($item)) {
+//                    $this->result['izglitiba'][] = $item;
+//                }else {
+//                    $this->result['izglitiba'][] = '';
+//                }
+//            }
+//        foreach ($fakultateArray as $item){
+//            if (!empty($item)) {
+//                $this->result['izglitiba'][] = $item;
+//            }else {
+//                $this->result['izglitiba'][] = '';
+//            }
+//        }
+//        foreach ($izglitibasLimenisArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($statussArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($parIzglitibuArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($darbsArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($amatsArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($slodzeArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($stazsArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($parDarbuArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($valodaArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+//        foreach ($valodasLimenisArray as $item){
+//            if (!empty($item)) {
+//                $izglitibasArray[] = $item;
+//            }else {
+//                $izglitibasArray[] = '';
+//            }
+//        }
+    }
+
+    public
+    function deleteCV()
     {
         if (empty($this->request->input('delete'))) {
             return;
@@ -33,7 +144,9 @@ class AllCVService
             }
         }
     }
-    public function editCV()
+
+    public
+    function editCV()
     {
         if (empty($this->request->input('edit'))) {
             return;
@@ -70,12 +183,14 @@ class AllCVService
         $this->request->session()->put('papildus_info', $cv->papildus_info);
     }
 
-    public function getResult()
+    public
+    function getResult()
     {
         return $this->result;
     }
 
-    private function getAllCVFromDB()
+    private
+    function getAllCVFromDB()
     {
         $allCV = personCV::all();
         return $allCV;

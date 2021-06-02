@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/'">Izveidot CV</button>
+<br>
 @foreach($results as $cv)
-{{ $cv->vards }}
+{{--{{ $cv->vards }}<br>--}}
 <form method="post">
     @csrf
     <input name="delete_id" value="{{ $cv->id }}" type="hidden">
