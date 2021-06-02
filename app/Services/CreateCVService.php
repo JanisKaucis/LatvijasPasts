@@ -18,6 +18,61 @@ class CreateCVService
         $this->request = $request;
     }
 
+    public function showCVFormData():array
+    {
+        $result = [
+            'vards' => $this->request->session()->get('vards'),
+            'uzvards' => $this->request->session()->get('uzvards'),
+            'talrunis' => $this->request->session()->get('talrunis'),
+            'epasts' => $this->request->session()->get('epasts'),
+            'valsts' => $this->request->session()->get('valsts'),
+            'indekss' => $this->request->session()->get('indekss'),
+            'pilseta' => $this->request->session()->get('pilseta'),
+            'iela' => $this->request->session()->get('iela'),
+            'izglitiba' => $this->request->session()->get('izglitiba'),
+            'fakultate' => $this->request->session()->get('fakultate'),
+            'izglitibas_limenis' => $this->request->session()->get('izglitibas_limenis'),
+            'statuss' => $this->request->session()->get('statuss'),
+            'par_izglitibu' => $this->request->session()->get('par_izglitibu'),
+            'darbs' => $this->request->session()->get('darbs'),
+            'amats' => $this->request->session()->get('amats'),
+            'slodze' => $this->request->session()->get('slodze'),
+            'stazs' => $this->request->session()->get('stazs'),
+            'par_darbu' => $this->request->session()->get('par_darbu'),
+            'prasmes' => $this->request->session()->get('prasmes'),
+            'valoda' => $this->request->session()->get('valoda'),
+            'valodas_limenis' => $this->request->session()->get('valodas_limenis'),
+            'citas_prasmes' => $this->request->session()->get('citas_prasmes'),
+            'intereses' => $this->request->session()->get('intereses'),
+            'papildus_info' => $this->request->session()->get('papildus_info'),
+        ];
+        $this->request->session()->forget('vards');
+            $this->request->session()->forget('uzvards');
+            $this->request->session()->forget('talrunis');
+            $this->request->session()->forget('epasts');
+            $this->request->session()->forget('valsts');
+            $this->request->session()->forget('indekss');
+            $this->request->session()->forget('pilseta');
+            $this->request->session()->forget('iela');
+            $this->request->session()->forget('izglitiba');
+            $this->request->session()->forget('fakultate');
+            $this->request->session()->forget('izglitibas_limenis');
+            $this->request->session()->forget('statuss');
+            $this->request->session()->forget('par_izglitibu');
+            $this->request->session()->forget('darbs');
+            $this->request->session()->forget('amats');
+            $this->request->session()->forget('slodze');
+            $this->request->session()->forget('stazs');
+            $this->request->session()->forget('par_darbu');
+            $this->request->session()->forget('prasmes');
+            $this->request->session()->forget('valoda');
+            $this->request->session()->forget('valodas_limenis');
+            $this->request->session()->forget('citas_prasmes');
+            $this->request->session()->forget('intereses');
+            $this->request->session()->forget('papildus_info');
+            return $result;
+    }
+
     public function handleCreateCV()
     {
         if (empty($this->request->input('create'))) {
@@ -54,8 +109,8 @@ class CreateCVService
             $slodze .= $this->request->input('slodze' . $i) . '/';
             $stazs .= $this->request->input('stazs' . $i) . '/';
             $parDarbu .= $this->request->input('parDarbu' . $i) . '/';
-            $valoda .= $this->request->input('valoda'. $i). '/';
-            $valodasLimenis .= $this->request->input('valodasLimenis'. $i). '/';
+            $valoda .= $this->request->input('valoda' . $i) . '/';
+            $valodasLimenis .= $this->request->input('valodasLimenis' . $i) . '/';
         }
 
         $prasmes = $this->request->input('prasmes');

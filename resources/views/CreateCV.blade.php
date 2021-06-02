@@ -8,27 +8,28 @@
     <title>Document</title>
 </head>
 <body>
+<button type="button" onclick="location.href = 'view'">Visi CV</button>
 <form id="forma" method="post">
     @csrf
     <label for="vards">Vārds</label>
-    <input type="text" name="vards" id="vards">
+    <input type="text" name="vards" id="vards" value="{{ $vards }}">
     <label for="uzvards">Uzvārds</label>
-    <input type="text" name="uzvards" id="uzvards">
+    <input type="text" name="uzvards" id="uzvards" value="{{ $uzvards }}">
     <br>
     <label for="talrunis">Tālrunis</label>
-    <input type="text" name="talrunis" id="talrunis">
+    <input type="text" name="talrunis" id="talrunis" value="{{$talrunis}}">
     <label for="epasts">Epasts</label>
-    <input type="text" name="epasts" id="epasts">
+    <input type="text" name="epasts" id="epasts" value="{{$epasts}}">
     <br>
     <label for="valsts">Valsts</label>
-    <input type="text" name="valsts" id="valsts">
+    <input type="text" name="valsts" id="valsts" value="{{$valsts}}">
     <label for="indekss">Pasta indekss</label>
-    <input type="text" name="indekss" id="indekss">
+    <input type="text" name="indekss" id="indekss" value="{{$indekss}}">
     <br>
     <label for="pilseta">Pilseta</label>
-    <input type="text" name="pilseta" id="pilseta">
+    <input type="text" name="pilseta" id="pilseta" value="{{$pilseta}}">
     <label for="iela">Iela</label>
-    <input type="text" name="iela" id="iela">
+    <input type="text" name="iela" id="iela" value="{{$iela}}">
     <br>
     Izglītības iestādes
     <br>

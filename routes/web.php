@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllCVController;
 use App\Http\Controllers\CreateCVController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CreateCVController::class, 'createCVShow'])->name('create');
 Route::post('/', [CreateCVController::class, 'createCVStore'])->name('create');
+Route::get('/view', [AllCVController::class, 'allCVShow'])->name('view');
+Route::post('/view', [AllCVController::class, 'allCVManage'])->name('view');
