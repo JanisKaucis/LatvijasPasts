@@ -17,7 +17,7 @@ class AllCVController
 
     public function allCVShow() {
         $this->allCVService->handleSeeAllCV();
-        $this->allCVService->handleShowIzglitiba();
+        $this->allCVService->handleMultiple();
         $results = $this->allCVService->getResult();
         return view('allCVs', $results);
     }
