@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\personCV;
 use Illuminate\Http\Request;
-use function Symfony\Component\Translation\t;
 
 class AllCVService
 {
@@ -19,6 +18,7 @@ class AllCVService
     public function handleSeeAllCV()
     {
         $this->result['results'] = personCV::orderBy('id')->simplePaginate(1);
+        $this->request->session()->put('cv',$this->result['results']);
     }
 
     public function handleMultiple()
@@ -38,23 +38,22 @@ class AllCVService
             $valodasLimenisArray = explode('/', $result->valodas_limenis);
         }
 
-            $this->result['nosaukums'] = $izglitibasNosaukumsArray;
-            $this->result['fakultate'] = $fakultateArray;
-            $this->result['izglitibasLimenis'] = $izglitibasLimenisArray;
-            $this->result['statuss'] = $statussArray;
-            $this->result['parIzglitibu'] = $parIzglitibuArray;
-            $this->result['darbs'] = $darbsArray;
-            $this->result['amats'] = $amatsArray;
-            $this->result['slodze'] = $slodzeArray;
-            $this->result['stazs'] = $stazsArray;
-            $this->result['parDarbu'] = $parDarbuArray;
-            $this->result['valoda'] = $valodaArray;
-            $this->result['valodasLimenis'] = $valodasLimenisArray;
+        $this->result['nosaukums'] = $izglitibasNosaukumsArray;
+        $this->result['fakultate'] = $fakultateArray;
+        $this->result['izglitibasLimenis'] = $izglitibasLimenisArray;
+        $this->result['statuss'] = $statussArray;
+        $this->result['parIzglitibu'] = $parIzglitibuArray;
+        $this->result['darbs'] = $darbsArray;
+        $this->result['amats'] = $amatsArray;
+        $this->result['slodze'] = $slodzeArray;
+        $this->result['stazs'] = $stazsArray;
+        $this->result['parDarbu'] = $parDarbuArray;
+        $this->result['valoda'] = $valodaArray;
+        $this->result['valodasLimenis'] = $valodasLimenisArray;
 
     }
 
-    public
-    function deleteCV()
+    public function deleteCV()
     {
         if (empty($this->request->input('delete'))) {
             return;
@@ -66,13 +65,23 @@ class AllCVService
             }
         }
     }
-
-    public
-    function editCV()
+    public function editCV()
     {
         if (empty($this->request->input('edit'))) {
             return;
         }
+        $this->handleCVdata();
+    }
+    public function showCV()
+    {
+        if (empty($this->request->input('show'))) {
+            return;
+        }
+        $this->handleCVdata();
+    }
+    private function handleCVdata()
+    {
+
         $allCV = $this->getAllCVFromDB();
         foreach ($allCV as $cv) {
             if ($cv->id = $this->request->input('edit_id')) {
@@ -106,15 +115,12 @@ class AllCVService
         $this->request->session()->put('intereses', $cv->intereses);
         $this->request->session()->put('papildus_info', $cv->papildus_info);
     }
-
-    public
-    function getResult()
+    public function getResult()
     {
         return $this->result;
     }
 
-    private
-    function getAllCVFromDB()
+    private function getAllCVFromDB()
     {
         $allCV = personCV::all();
         return $allCV;

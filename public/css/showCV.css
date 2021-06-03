@@ -1,0 +1,27 @@
+body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.1;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #1a202c;
+}
+.thick {
+    font-weight: bold;
+}
+.large {
+    font-size: 200%;
+}
+.profile {
+    display: block;
+}
+.left {
+    display: block;
+    text-align: left;
+}
+.right {
+float: right;
+    text-align: right;
+}

@@ -62,6 +62,7 @@
     @if(!empty($izglitiba))
         @for($i=0;$i<count($izglitiba);$i++)
             @if(!empty($izglitiba[$i]))
+                <div>
                 <label for="izglitibasNosaukums">Iestādes nosaukums</label>
                 <input type="text" name="izglitibasNosaukums{{$i+1}}" id="izglitibasNosaukums" value="{{$izglitiba[$i]}}">
                 <label for="fakultate">Fakultāte</label>
@@ -84,6 +85,9 @@
                 <textarea id="cits" name="parIzglitibu{{$i+1}}" rows="4" cols="30">{{$parIzglitibu[$i]}}
         </textarea>
                 <br>
+                    <input type="button" value="Noņemt izglitibu"
+                           onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
+                </div>
             @endif
         @endfor
     @endif
@@ -113,6 +117,7 @@
     @if(!empty($darbs))
         @for($i=0;$i<count($darbs);$i++)
             @if(!empty($darbs[$i]))
+                <div>
                 <label for="darbaNosaukums">Darbavietas nosaukums</label>
                 <input id="darbaNosaukums" type="text" name="darbaNosaukums{{$i+1}}" value="{{$darbs[$i]}}">
                 <br>
@@ -129,6 +134,9 @@
                 <textarea id="cits" name="parDarbu{{$i+1}}" rows="4" cols="30">{{$parDarbu[$i]}}
         </textarea>
                 <br>
+                    <input type="button" value="Noņemt darbu"
+                           onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
+                </div>
             @endif
         @endfor
     @endif
@@ -163,6 +171,7 @@
     @if(!empty($valoda))
         @for($i=0;$i<count($valoda);$i++)
             @if(!empty($valoda[$i]))
+                <div>
                 <label for="valoda">Valodas nosaukums</label>
                 <input id="valoda" type="text" name="valoda{{$i+1}}" value="{{$valoda[$i]}}">
                 <br>
@@ -178,6 +187,9 @@
                 <input type="radio" id="pieci" name="valodasLimenis{{$i+1}}" value="pieci">
                 <label for="pieci">5</label>
                 <br>
+                    <br><input type="button" value="Noņemt valodu"
+                               onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
+                </div>
             @endif
         @endfor
     @endif

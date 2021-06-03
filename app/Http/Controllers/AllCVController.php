@@ -24,10 +24,12 @@ class AllCVController
     public function allCVManage() {
         $this->allCVService->deleteCV();
         $this->allCVService->editCV();
-
-        if (empty($this->request->input('edit'))) {
-            return redirect()->route('view');
-        }
-        return redirect()->route('create');
+        $this->allCVService->showCV();
+        if (!empty($this->request->input('edit'))) {
+            return redirect()->route('create');
+        }elseif (!empty($this->request->input('show'))){
+            return redirect()->route('show');
+        }else
+        return redirect()->route('view');
     }
 }
