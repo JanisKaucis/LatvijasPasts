@@ -85,13 +85,13 @@
         </div>
     <form method="post">
         @csrf
-        <input name="delete_id" value="{{ $cv->id }}" type="hidden">
+        <input name="cv_id" value="{{ $cv->id }}" type="hidden">
         <input class="button" type="submit" name="delete" value="Dzēst">
         <input class="button" type="submit" name="edit" value="Rediģēt">
         <input class="button" type="submit" name="show" value="Apskatīt CV">
     </form>
 @endforeach
-    {{ $results->links() }}
+    <div class="links">{{ $results->links() }}</div>
     </div>
 </body>
 </html>

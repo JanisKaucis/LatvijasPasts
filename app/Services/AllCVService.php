@@ -60,8 +60,8 @@ class AllCVService
         }
         $allCV = $this->getAllCVFromDB();
         foreach ($allCV as $cv) {
-            if ($cv->id = $this->request->input('delete_id')) {
-                personCV::where(['id' => $this->request->input('delete_id')])->delete();
+            if ($cv->id = $this->request->input('cv_id')) {
+                personCV::where(['id' => $this->request->input('cv_id')])->delete();
             }
         }
     }
@@ -84,8 +84,8 @@ class AllCVService
 
         $allCV = $this->getAllCVFromDB();
         foreach ($allCV as $cv) {
-            if ($cv->id = $this->request->input('edit_id')) {
-                $cv = personCV::where(['id' => $this->request->input('edit_id')])->first();
+            if ($cv->id = $this->request->input('cv_id')) {
+                $cv = personCV::where(['id' => $this->request->input('cv_id')])->first();
             }
         }
         $this->handleSeeAllCV();

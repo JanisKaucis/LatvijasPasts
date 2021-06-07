@@ -27,3 +27,56 @@ body {
 float: right;
     text-align: right;
 }
+button {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input[type=submit] {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input[type=button] {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input:hover {
+    background-color: bisque;
+}
+input:hover[type=button] {
+    background-color: lightcoral;
+}
+input:hover[type=submit] {
+    background-color: lightcoral;
+}
+button:hover {
+    background-color: lightcoral;
+}
+.links {
+    background: brown;
+    display: inline-block;
+    color: white;
+}
+a:hover {
+    color: red;
+}
+a {
+    color: yellow;
+}
