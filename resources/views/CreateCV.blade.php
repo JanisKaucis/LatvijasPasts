@@ -5,10 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{asset('css/createCV.css')}}" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+<div class="form">
 <button type="button" onclick="location.href = 'view'">Visi CV</button>
+    <h4>Izvedot CV</h4>
 <form id="forma" method="post">
     @csrf
     <label for="vards">Vārds</label>
@@ -30,9 +33,7 @@
     <input type="text" name="pilseta" id="pilseta" value="{{$pilseta}}">
     <label for="iela">Iela</label>
     <input type="text" name="iela" id="iela" value="{{$iela}}">
-    <br>
-    Izglītības iestādes
-    <br>
+    <h4>Izglītības iestādes</h4>
     <div id="izglitiba" style="display: none">
         <label for="izglitibasNosaukums">Iestādes nosaukums</label>
         <input type="text" name="izglitibasNosaukums" id="izglitibasNosaukums">
@@ -53,7 +54,7 @@
         <br>
         <label for="cits">Cita informācija</label>
         <br>
-        <textarea id="cits" name="parIzglitibu" rows="4" cols="30">
+        <textarea id="cits" name="parIzglitibu" rows="4" cols="60">
         </textarea>
         <br>
         <input type="button" value="Noņemt izglitibu"
@@ -82,7 +83,7 @@
                 <br>
                 <label for="cits">Cita informācija</label>
                 <br>
-                <textarea id="cits" name="parIzglitibu{{$i+1}}" rows="4" cols="30">{{$parIzglitibu[$i]}}
+                <textarea id="cits" name="parIzglitibu{{$i+1}}" rows="4" cols="60">{{$parIzglitibu[$i]}}
         </textarea>
                 <br>
                     <input type="button" value="Noņemt izglitibu"
@@ -108,7 +109,7 @@
         <br>
         <label for="cits">Cita informācija</label>
         <br>
-        <textarea id="cits" name="parDarbu" rows="4" cols="30">
+        <textarea id="cits" name="parDarbu" rows="4" cols="60">
         </textarea>
         <br>
         <input type="button" value="Noņemt darbu"
@@ -131,7 +132,7 @@
                 <br>
                 <label for="cits">Cita informācija</label>
                 <br>
-                <textarea id="cits" name="parDarbu{{$i+1}}" rows="4" cols="30">{{$parDarbu[$i]}}
+                <textarea id="cits" name="parDarbu{{$i+1}}" rows="4" cols="60">{{$parDarbu[$i]}}
         </textarea>
                 <br>
                     <input type="button" value="Noņemt darbu"
@@ -145,7 +146,7 @@
     <br>
     <label for="prasmes">Darba vietās pielietotās prasmes vai sasniegumi</label>
     <br>
-    <textarea id="prasmes" name="prasmes" rows="4" cols="30">{{$prasmes}}
+    <textarea id="prasmes" name="prasmes" rows="4" cols="60">{{$prasmes}}
     </textarea>
     <br>
     <div id="valoda" style="display: none">
@@ -155,15 +156,15 @@
         <br>
         Līmenis
         <input type="radio" id="viens" name="valodasLimenis" value="viens">
-        <label for="viens">1</label>
+        <label class="valoda" for="viens">1</label>
         <input type="radio" id="divi" name="valodasLimenis" value="divi">
-        <label for="divi">2</label>
+        <label class="valoda" for="divi">2</label>
         <input type="radio" id="tris" name="valodasLimenis" value="tris" checked />
-        <label for="tris">3</label>
+        <label class="valoda" for="tris">3</label>
         <input type="radio" id="cetri" name="valodasLimenis" value="cetri">
-        <label for="cetri">4</label>
+        <label class="valoda" for="cetri">4</label>
         <input type="radio" id="pieci" name="valodasLimenis" value="pieci">
-        <label for="pieci">5</label>
+        <label class="valoda" for="pieci">5</label>
         <br><input type="button" value="Noņemt valodu"
                    onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
 
@@ -177,15 +178,15 @@
                 <br>
                 Līmenis
                 <input type="radio" id="viens" name="valodasLimenis{{$i+1}}" value="viens">
-                <label for="viens">1</label>
+                <label class="valoda" for="viens">1</label>
                 <input type="radio" id="divi" name="valodasLimenis{{$i+1}}" value="divi">
-                <label for="divi">2</label>
+                <label class="valoda" for="divi">2</label>
                 <input type="radio" id="tris" name="valodasLimenis{{$i+1}}" value="tris" checked>
-                <label for="tris">3</label>
+                <label class="valoda" for="tris">3</label>
                 <input type="radio" id="cetri" name="valodasLimenis{{$i+1}}" value="cetri">
-                <label for="cetri">4</label>
+                <label class="valoda" for="cetri">4</label>
                 <input type="radio" id="pieci" name="valodasLimenis{{$i+1}}" value="pieci">
-                <label for="pieci">5</label>
+                <label class="valoda" for="pieci">5</label>
                 <br>
                     <br><input type="button" value="Noņemt valodu"
                                onclick="this.parentNode.parentNode.removeChild(this.parentNode);"/>
@@ -198,21 +199,22 @@
     <br>
     <label for="citasPrasmes">Citas prasmes</label>
     <br>
-    <textarea id="citasPrasmes" name="citasPrasmes" rows="4" cols="30">{{$citasPrasmes}}
+    <textarea id="citasPrasmes" name="citasPrasmes" rows="4" cols="60">{{$citasPrasmes}}
     </textarea>
     <br>
     <label for="intereses">Intereses</label>
     <br>
-    <textarea id="intereses" name="intereses" rows="4" cols="30">{{$intereses}}
+    <textarea id="intereses" name="intereses" rows="4" cols="60">{{$intereses}}
     </textarea>
     <br>
     <label for="papildusInfo">Papildus informācija</label>
     <br>
-    <textarea id="papildusInfo" name="papildusInfo" rows="4" cols="30">{{$papildusInfo}}
+    <textarea id="papildusInfo" name="papildusInfo" rows="4" cols="60">{{$papildusInfo}}
     </textarea>
     <br>
     <input id="create" type="submit" name="create" value="Izveidot CV">
 </form>
+</div>
 <script src="{{asset('js/addFields.js')}}">
 </script>
 </body>

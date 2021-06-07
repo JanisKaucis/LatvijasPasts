@@ -23,6 +23,7 @@
         {{ $iela }}<br>
         Pasta indekss: {{$indekss }}<br><br>
     Valodas zināšanas <br>
+            @if(!empty($valoda))
     @for($i=0;$i<count($valoda);$i++)
             @if(!empty($valoda[$i]))
                 {{$valoda[$i]}}
@@ -40,11 +41,13 @@
                 <br>
             @endif
         @endfor
+            @endif
         </span>
 
     <hr>
     Izglītība <br>
     <hr>
+    @if(!empty($izglitiba))
     @for($i=0;$i<count($izglitiba);$i++)
         @if(!empty($izglitiba[$i]))
             {{$izglitiba[$i]}}<br>
@@ -56,8 +59,10 @@
             <hr>
         @endif
     @endfor
+    @endif
     Darba pieredze <br>
     <hr>
+    @if(!empty($darbs))
     @for($i=0;$i<count($darbs);$i++)
         @if(!empty($darbs[$i]))
             Darba vieta: {{ $darbs[$i] }}
@@ -69,6 +74,7 @@
             <hr>
         @endif
     @endfor
+    @endif
     Darbā iegūtās prasmes <br>
     {{$prasmes}}<br>
     Citas prasmes <br>
